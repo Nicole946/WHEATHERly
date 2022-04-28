@@ -17,7 +17,7 @@ h6 {
 
 #header::before {
   content: "";
-  background-image: url("/Users/nmh/Documents/GitHub/WHEATHERly/pics/sky.jpg");
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/032/960/original/sky.jpg?1651163924");
   background-size: cover;
   position: absolute;
   top: 0px;
