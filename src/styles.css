@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  padding: 30px;
+}
+
+h6 {
+  padding: 2px 3px;
+}
+
+.container1 {
+  max-width: 800px;
+}
+
+.container1 h1 {
+  font-weight: bold;
+}
+
+#header::before {
+  content: "";
+  background-image: url("/Users/nmh/Documents/SheCodes/2. Plus/Week 5/Week 5 - project/79dqoh/pics/sky.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 205px;
+  left: 0px;
+  opacity: 0.5;
+}
+
+#city {
+  background-color: #e7e7e5;
+  border: solid;
+  border-width: 1.5px;
+  border-color: #000000;
+  box-shadow: inset;
+  border-radius: 7px;
+  padding: 3px 8px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+#currentCity {
+  background-color: #e7e7e5;
+  border: solid;
+  border-width: 1.5px;
+  border-color: #148496;
+  box-shadow: inset;
+  border-radius: 7px;
+  padding: 3px 8px;
+  font-size: 15px;
+  color: #000000;
+}
+
+.search {
+  color: black;
+  background-color: #8cdae6;
+  border: solid;
+  border-width: 1.5px;
+  border-color: #148496;
+  box-shadow: inset;
+  border-radius: 7px;
+  padding: 3px 8px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+.currentButton {
+  background-color: #8cdae6;
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  box-shadow: inset;
+  padding: 5.5px 8px;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.pin {
+  width: 22px;
+}
+
+.weather-container-bottom {
+  position: relative;
+  border: solid;
+  border-radius: 10px;
+  margin: 0;
+  padding: 70px;
+}
+
+.bigTime {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  margin-left: 3px;
+  text-align: left;
+}
+
+#fullDate {
+  margin-left: 3px;
+  margin-top: 0px;
+  text-align: left;
+  font-size: 22px;
+}
+
+.precWind {
+  padding-top: 160px;
+  font-size: 25px;
+  bottom: -10px;
+  margin-left: 3px;
+  text-align: left;
+}
+
+.bigCity {
+  font-size: 60px;
+  margin-bottom: 0px;
+  margin-right: 3px;
+  font-weight: 400;
+  text-align: right;
+}
+
+#country {
+  top: 0px;
+  margin-right: 3px;
+  text-align: right;
+  font-size: 25px;
+}
+
+.typesOfWeatheToday {
+  font-size: 50px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#weatherbox {
+  border: solid;
+  border-width: 1.5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  max-width: 900px;
+}
+#footer {
+  background-color: #8cdae6;
+  fill-opacity: 0.6;
+  border: solid;
+  border-color: #8cdae6;
+  border-radius: 0 0 8px 8px;
+}
+
+#firstRow {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 50%;
+}
+
+.today {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+#mainDegree,
+#degreeToF {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  display: inline;
+}
+
+#degreeToF {
+  font-size: 40px;
+}
+
+.typesOfWeather {
+  text-align: 0 auto;
+  font-size: 25px;
+  margin-left: 0;
+  padding-right: 12px;
+}
+
+.today {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.tue {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+}
+
+.wed {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+}
+
+.thu {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+}
+
+.fri {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+}
+
+.sat {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+}
+
+.sun {
+  border: solid;
+  border-color: #148496;
+  border-width: 1.5px;
+  border-radius: 10px;
+  background-color: #148496;
+  color: aliceblue;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.typesOfWeatherWeek {
+  position: relative;
+  margin: 10px 0;
+  width: 60px;
+}
