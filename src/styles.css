@@ -17,7 +17,7 @@ h6 {
 
 #header::before {
   content: "";
-  background-image: url("/opt/build/repo/Users/nmh/Documents/SheCodes/2. Plus/Week 5/Week 5 - project/79dqoh/pics/sky.jpg");
+  background-image: url("/Users/nmh/Documents/GitHub/WHEATHERly/pics/sky.jpg");
   background-size: cover;
   position: absolute;
   top: 0px;
