@@ -258,3 +258,9 @@ h6 {
   margin: 10px 0;
   width: 60px;
 }
+
+.codedLinks :hover {
+  text-decoration: underline;
+  color: #148496;
+  cursor: pointer;
+}
