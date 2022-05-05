@@ -19,6 +19,8 @@ h6 {
   content: "";
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/032/960/original/sky.jpg?1651163924");
   background-size: cover;
+  border: none;
+  border-radius: 10px 10px 0px 0px;
   position: absolute;
   top: 0px;
   right: 0px;
