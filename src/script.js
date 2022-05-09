@@ -85,6 +85,8 @@ function showFahrenheit(event) {
 function showCelsius(event) {
   event.preventDefault();
   let cityCelsius = document.querySelector("#mainDegree");
+  celsiusConvert.classList.add("active");
+  fahrenheitConvert.classList.remove("active");
   celsiusTemperature = Math.round(celsiusTemperature);
   cityCelsius.innerHTML = celsiusTemperature;
 }
