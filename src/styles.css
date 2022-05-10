@@ -144,6 +144,12 @@ h6 {
   right: 0px;
 }
 
+#currentIcon {
+  width: 200px;
+  margin-top: 50px;
+  margin-left: 120px;
+}
+
 #weatherbox {
   border: solid;
   border-width: 1.5px;
