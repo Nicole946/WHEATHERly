@@ -63,6 +63,24 @@ function search(event) {
     let cityWeather = document.querySelector(".typesOfWeather");
     cityWeather.innerHTML = `${weather}`;
 
+    let humidity = response.data.main.humidity;
+    humidity = Math.round(response.data.main.humidity);
+    let cityHumidity = document.querySelector("#local-hum");
+    cityHumidity.innerHTML = `Humidity: ${humidity}%`;
+
+    let wind = response.data.wind.speed;
+    wind = Math.round(response.data.wind.speed);
+    let cityWind = document.querySelector("#local-wind");
+    cityWind.innerHTML = `Wind: ${wind}km/h`;
+
+    let icon = response.data.weather[0].icon;
+    let weatherIcon = document.querySelector("#currentIcon");
+    weatherIcon.innerHTML = `${icon}`;
+    weatherIcon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${icon}@2x.png`
+    );
+
     celsiusTemperature = response.data.main.temp;
   }
 

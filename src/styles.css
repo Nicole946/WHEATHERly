@@ -106,11 +106,21 @@ h6 {
 }
 
 .precWind {
-  padding-top: 160px;
+  padding-top: 180px;
   font-size: 25px;
   bottom: -10px;
   margin-left: 3px;
   text-align: left;
+}
+
+#local-hum {
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+
+#local-wind {
+  margin-bottom: 0px;
+  font-size: 25px;
 }
 
 .bigCity {
@@ -129,6 +139,12 @@ h6 {
 }
 
 .typesOfWeatheToday {
+  font-size: 50px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#currentIcon {
   font-size: 50px;
   bottom: 0px;
   right: 0px;
