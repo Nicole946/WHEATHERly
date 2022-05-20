@@ -212,52 +212,7 @@ h6 {
   margin-right: 30px;
 }
 
-.tue {
-  border: solid;
-  border-color: #148496;
-  border-width: 1.5px;
-  border-radius: 10px;
-  background-color: #148496;
-  color: aliceblue;
-}
-
-.wed {
-  border: solid;
-  border-color: #148496;
-  border-width: 1.5px;
-  border-radius: 10px;
-  background-color: #148496;
-  color: aliceblue;
-}
-
-.thu {
-  border: solid;
-  border-color: #148496;
-  border-width: 1.5px;
-  border-radius: 10px;
-  background-color: #148496;
-  color: aliceblue;
-}
-
-.fri {
-  border: solid;
-  border-color: #148496;
-  border-width: 1.5px;
-  border-radius: 10px;
-  background-color: #148496;
-  color: aliceblue;
-}
-
-.sat {
-  border: solid;
-  border-color: #148496;
-  border-width: 1.5px;
-  border-radius: 10px;
-  background-color: #148496;
-  color: aliceblue;
-}
-
-.sun {
+.weather-forecast-date {
   border: solid;
   border-color: #148496;
   border-width: 1.5px;

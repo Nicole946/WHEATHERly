@@ -33,6 +33,29 @@ let month = months[now.getMonth()];
 let currentDate = document.getElementById("fullDate");
 currentDate.innerHTML = `${day}, ${date} ${month} ${year}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="row">`;
+
+  days.forEach(function (days) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col">
+            <h6 class="weather-forecast-date">${days}</h6>
+            <img src="pics/showers.png" alt="Scattered showers" class="typesOfWeatherWeek">
+            <p class="card-title" class="weekDegree">9°</p>
+        </div>
+    `;
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+  });
+}
+
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#current-city");
@@ -100,6 +123,8 @@ function showFahrenheit(event) {
   cityFahrenheit.innerHTML = `${tempConversion}`;
 }
 
+displayForecast();
+
 function showCelsius(event) {
   event.preventDefault();
   let cityCelsius = document.querySelector("#mainDegree");
@@ -118,17 +143,3 @@ let celsiusConvert = document.querySelector("#celsius-link");
 celsiusConvert.addEventListener("click", showCelsius);
 
 search("");
-//let temperatureElement = document.querySelector("mainDegree");
-//temperatureElement.innerHTML = tempConversion;
-
-// function showPosition(position) {
-//   console.log(position);
-// }
-// function getCurrentLocation() {
-//   navigator.geolocation.getCurrentPosition(showPosition);
-// }
-
-// let buttonPosition = document.querySelector(".pin");
-// buttonPosition.addEventListener("click", getCurrentLocation);
-
-// navigator.geolocation.getCurrentPosition(showPosition);
