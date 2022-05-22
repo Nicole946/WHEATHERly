@@ -21,10 +21,11 @@ h6 {
   background-size: cover;
   border: none;
   border-radius: 10px 10px 0px 0px;
+  padding-bottom: 0px;
   position: absolute;
   top: 0px;
   right: 0px;
-  bottom: 205px;
+  bottom: 220px;
   left: 0px;
   opacity: 0.5;
 }
@@ -160,6 +161,7 @@ h6 {
 #footer {
   background-color: #8cdae6;
   fill-opacity: 0.6;
+  margin-top: 10px;
   border: solid;
   border-color: #8cdae6;
   border-radius: 0 0 8px 8px;

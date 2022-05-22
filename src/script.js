@@ -38,13 +38,12 @@ function displayForecast() {
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row" id="forecast">`;
 
   days.forEach(function (days) {
     forecastHTML =
       forecastHTML +
-      `
-        <div class="col">
+      ` <div class="col">
             <h6 class="weather-forecast-date">${days}</h6>
             <img src="pics/showers.png" alt="Scattered showers" class="typesOfWeatherWeek">
             <p class="card-title" class="weekDegree">9°</p>
@@ -55,6 +54,8 @@ function displayForecast() {
     forecastElement.innerHTML = forecastHTML;
   });
 }
+
+displayForecast();
 
 function search(event) {
   event.preventDefault();
@@ -71,6 +72,17 @@ function search(event) {
 
   let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
+
+  function getForecast(coordinates) {
+    console.log(coordinates);
+    let lat = coordinates.lat;
+    let lon = coordinates.lon;
+    console.log(lat);
+    console.log(lon);
+    let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    console.log(apiUrl);
+  }
 
   function showTemperature(response) {
     let temperature = Math.round(response.data.main.temp);
@@ -105,6 +117,8 @@ function search(event) {
     );
 
     celsiusTemperature = response.data.main.temp;
+
+    getForecast(response.data.coord);
   }
 
   axios.get(`${apiUrl}`).then(showTemperature);
@@ -122,8 +136,6 @@ function showFahrenheit(event) {
   tempConversion = Math.round(tempConversion);
   cityFahrenheit.innerHTML = `${tempConversion}`;
 }
-
-displayForecast();
 
 function showCelsius(event) {
   event.preventDefault();
@@ -143,3 +155,4 @@ let celsiusConvert = document.querySelector("#celsius-link");
 celsiusConvert.addEventListener("click", showCelsius);
 
 search("");
+getForecast();
