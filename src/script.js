@@ -33,12 +33,13 @@ let month = months[now.getMonth()];
 let currentDate = document.getElementById("fullDate");
 currentDate.innerHTML = `${day}, ${date} ${month} ${year}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-  let forecastHTML = `<div class="row" id="forecast">`;
+  let forecastHTML = `<div class="row">`;
 
   days.forEach(function (days) {
     forecastHTML =
@@ -55,7 +56,16 @@ function displayForecast() {
   });
 }
 
-displayForecast();
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
 
 function search(event) {
   event.preventDefault();
@@ -73,55 +83,44 @@ function search(event) {
   let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
 
-  function getForecast(coordinates) {
-    console.log(coordinates);
-    let lat = coordinates.lat;
-    let lon = coordinates.lon;
-    console.log(lat);
-    console.log(lon);
-    let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    console.log(apiUrl);
-  }
-
-  function showTemperature(response) {
-    let temperature = Math.round(response.data.main.temp);
-    console.log(temperature);
-    console.log(response);
-
-    let cityTemperature = document.querySelector("#mainDegree");
-    cityTemperature.innerHTML = `${temperature}`;
-
-    let weather = response.data.weather[0].main;
-    console.log(weather);
-
-    let cityWeather = document.querySelector(".typesOfWeather");
-    cityWeather.innerHTML = `${weather}`;
-
-    let humidity = response.data.main.humidity;
-    humidity = Math.round(response.data.main.humidity);
-    let cityHumidity = document.querySelector("#local-hum");
-    cityHumidity.innerHTML = `Humidity: ${humidity}%`;
-
-    let wind = response.data.wind.speed;
-    wind = Math.round(response.data.wind.speed);
-    let cityWind = document.querySelector("#local-wind");
-    cityWind.innerHTML = `Wind: ${wind}km/h`;
-
-    let icon = response.data.weather[0].icon;
-    let weatherIcon = document.querySelector("#currentIcon");
-    weatherIcon.innerHTML = `${icon}`;
-    weatherIcon.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${icon}@2x.png`
-    );
-
-    celsiusTemperature = response.data.main.temp;
-
-    getForecast(response.data.coord);
-  }
-
   axios.get(`${apiUrl}`).then(showTemperature);
+}
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  console.log(temperature);
+  console.log(response);
+
+  let cityTemperature = document.querySelector("#mainDegree");
+  cityTemperature.innerHTML = `${temperature}`;
+
+  let weather = response.data.weather[0].main;
+  console.log(weather);
+
+  let cityWeather = document.querySelector(".typesOfWeather");
+  cityWeather.innerHTML = `${weather}`;
+
+  let humidity = response.data.main.humidity;
+  humidity = Math.round(response.data.main.humidity);
+  let cityHumidity = document.querySelector("#local-hum");
+  cityHumidity.innerHTML = `Humidity: ${humidity}%`;
+
+  let wind = response.data.wind.speed;
+  wind = Math.round(response.data.wind.speed);
+  let cityWind = document.querySelector("#local-wind");
+  cityWind.innerHTML = `Wind: ${wind}km/h`;
+
+  let icon = response.data.weather[0].icon;
+  let weatherIcon = document.querySelector("#currentIcon");
+  weatherIcon.innerHTML = `${icon}`;
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
+
+  celsiusTemperature = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 let form = document.querySelector("#city");
@@ -155,4 +154,3 @@ let celsiusConvert = document.querySelector("#celsius-link");
 celsiusConvert.addEventListener("click", showCelsius);
 
 search("");
-getForecast();
