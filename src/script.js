@@ -33,26 +33,42 @@ let month = months[now.getMonth()];
 let currentDate = document.getElementById("fullDate");
 currentDate.innerHTML = `${day}, ${date} ${month} ${year}`;
 
+let todayDay = document.querySelector(".today");
+todayDay.innerHTML = `${day}`;
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   let forecastHTML = `<div class="row">`;
 
-  days.forEach(function (days) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col">
-            <h6 class="weather-forecast-date">${days}</h6>
-            <img src="pics/showers.png" alt="Scattered showers" class="typesOfWeatherWeek">
-            <p class="card-title" class="weekDegree">9°</p>
-        </div>
-    `;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col">
+          <h6 class="weather-forecast-date">${formatDay(forecastDay.dt)}</h6>
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="forecastIcon" class="typesOfWeatherWeek">
+          <p class="card-title" class="weekDegree">${Math.round(
+            forecastDay.temp.day
+          )}°</p>
+      </div>
+  `;
 
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forecastHTML;
+      forecastHTML = forecastHTML + `</div>`;
+      forecastElement.innerHTML = forecastHTML;
+    }
   });
 }
 
@@ -153,4 +169,4 @@ fahrenheitConvert.addEventListener("click", showFahrenheit);
 let celsiusConvert = document.querySelector("#celsius-link");
 celsiusConvert.addEventListener("click", showCelsius);
 
-search("");
+search();
