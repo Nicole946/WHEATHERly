@@ -100,6 +100,9 @@ function search(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
 
   axios.get(`${apiUrl}`).then(showTemperature);
+
+  celsiusConvert.classList.add("active");
+  fahrenheitConvert.classList.remove("active");
 }
 
 function primaryLocation(position) {
@@ -183,3 +186,4 @@ let celsiusConvert = document.querySelector("#celsius-link");
 celsiusConvert.addEventListener("click", showCelsius);
 
 search();
+showCelsius();
