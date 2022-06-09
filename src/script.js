@@ -108,6 +108,7 @@ function search(event) {
 function primaryLocation(position) {
   let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  console.log(position);
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -141,6 +142,9 @@ function showTemperature(response) {
   wind = Math.round(response.data.wind.speed);
   let cityWind = document.querySelector("#local-wind");
   cityWind.innerHTML = `Wind: ${wind}km/h`;
+
+  let mainCity = document.querySelector(".bigCity");
+  mainCity.innerHTML = response.data.name;
 
   let icon = response.data.weather[0].icon;
   let weatherIcon = document.querySelector("#currentIcon");
@@ -184,6 +188,3 @@ fahrenheitConvert.addEventListener("click", showFahrenheit);
 
 let celsiusConvert = document.querySelector("#celsius-link");
 celsiusConvert.addEventListener("click", showCelsius);
-
-search();
-showCelsius();
