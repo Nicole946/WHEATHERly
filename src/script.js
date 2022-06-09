@@ -86,15 +86,10 @@ function getForecast(coordinates) {
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#current-city");
-  let countryInput = prompt("What is the country?");
 
   let mainCity = document.querySelector(".bigCity");
   mainCity.innerHTML = `${searchInput.value}`;
   console.log(searchInput.value);
-
-  let mainCountry = document.querySelector("#country");
-  mainCountry.innerHTML = `${countryInput}`;
-  console.log(countryInput);
 
   let apiKey = "59f40513e09ff0b79a28ee79de3b43e7";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
@@ -145,6 +140,9 @@ function showTemperature(response) {
 
   let mainCity = document.querySelector(".bigCity");
   mainCity.innerHTML = response.data.name;
+
+  let mainCountry = document.querySelector("#country");
+  mainCountry.innerHTML = response.data.sys.country;
 
   let icon = response.data.weather[0].icon;
   let weatherIcon = document.querySelector("#currentIcon");
